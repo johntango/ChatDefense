@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>One Shot Prompting</title>
+    <script src="script.js" type="text/javascript"></script>
+    <style>
+      div {
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Create Prompt for GPT</h1>
+
+    <form id="promptForm" action="http://localhost:3030/prompt" method="post">
+      <label for="system">System Prompt:</label>
+      <input type="text" id="system" name="system" width="500" /><br /><br />
+      <label for="user">User Prompt</label>
+      <input type="text" id="user" name="user" width="500" /><br /><br />
+    </form>
+    <button onclick="sendPrompt()">Submit it</button>
+    <p>Server Response:</p>
+    <div id="response"></div>
+  </body>
+</html>

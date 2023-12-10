@@ -27,11 +27,10 @@ app.get('/', (req, res) => {
 app.post('/prompt', async(req, res) => {
   // get the values from the request 
   console.log(JSON.stringify(req.body));
-  const system = req.body.system;
+  const system = "You are a helpful assistant that answers questions only about the weather."
   const user = req.body.user;
 
-  console.log("system: " + system)
-  let m1 = {"role": "system", "content": ""};
+  let m1 = {"role": "system", "content": system};
   let m2 = {"role": "user", "content": ""}
 
   let messages = [];
@@ -48,7 +47,7 @@ app.post('/prompt', async(req, res) => {
   }
   try {
       await openai.chat.completions.create({
-            messages: messages,    // not using m3 at the moment
+            messages: messages,    
             model: "gpt-4",
           }).then((response) => {
             console.log(response.choices[0].message);
